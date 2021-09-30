@@ -1,0 +1,29 @@
+<div class="container">
+  <h3>Show Task</h3>
+<div class="row">
+    <div class="col-xl-4" >
+<div class="listdrag list-group"><p>Open</p>
+    <span class="list-group-item"  *ngFor="let ans of result" (onDrag)="onDrag($event)" draggable  [dragData]="ans" [attr.for]="ans.title+'#'+ans.description+'#'+ans.status+'#'+ans.datetime+'#'+ans.id">{{ans.title}} 
+    &#160;&#160;&#160;&#160;<a href="/edittask/{{ans.id}}">Edit</a></span>
+</div>
+ </div>
+  <div class="col-xl-4">    
+  <div class ="listdrop list-group" (onDrop)="onDrop($event)" droppable>
+    <p>In-Progress</p>
+    
+    <li class="list-group-item" *ngFor="let ans of InProgress" >{{ans.title}}</li>
+  
+  </div>    
+  
+</div>
+<div class="col-xl-4">    
+    <div class ="listdrop list-group" (onDrop)="onDropComplete($event)" droppable>
+      <p>Completed</p>
+      
+      <li class="list-group-item" *ngFor="let ans of done" >{{ans.title}}</li>
+    
+    </div>    
+    
+  </div>
+</div>
+</div>
